@@ -135,54 +135,7 @@ def display_grayscale_with_colorbar(images):
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     plt.show()
-
-# def display_rotation_animation(sample_img_rgb):
-#     """
-#     Yêu cầu 2.4: Xoay và Thu phóng 50 lần, hiển thị các bước chính trên 1 figure.
-#     """
-#     print("\n[Yêu cầu 2.4] Xoay và Thu phóng (50 lần, 15 độ, 90% size) - Hiển thị 9 bước chính...")
-
-#     # Chuyển lại sang BGR cho các phép biến đổi hình học của OpenCV
-#     sample_img_bgr = cv2.cvtColor(sample_img_rgb, cv2.COLOR_RGB2BGR)
-
-#     (h, w) = sample_img_bgr.shape[:2]
-#     (cX, cY) = (w // 2, h // 2)
     
-#     current_rotation = 0.0
-#     current_scale = 1.0
-    
-#     # Chỉ hiển thị 9 bước chính (bước 1, 5, 10, 15, 20, 25, 30, 40, 50)
-#     steps_to_display = [1, 5, 10, 15, 20, 25, 30, 40, 50]
-#     results = {}
-    
-#     for i in range(1, 51):
-#         current_rotation += 15.0
-#         current_scale *= 0.9
-        
-#         M = cv2.getRotationMatrix2D((cX, cY), current_rotation, current_scale)
-#         rotated_scaled_bgr = cv2.warpAffine(sample_img_bgr, M, (w, h))
-        
-#         if i in steps_to_display:
-#              # Chuyển kết quả về RGB để lưu và hiển thị bằng Matplotlib
-#             rotated_scaled_rgb = cv2.cvtColor(rotated_scaled_bgr, cv2.COLOR_BGR2RGB)
-#             results[f"Bước {i} (Góc: {int(current_rotation % 360)}°, Tỷ lệ: {current_scale:.2f})"] = rotated_scaled_rgb
-
-#     # Hiển thị 9 kết quả chính trên 1 figure
-#     plt.figure(figsize=(18, 12))
-#     plt.suptitle(f"Biến đổi Xoay và Thu phóng (Ảnh Gốc: {SAMPLE_IMAGE_NAME})", fontsize=16)
-    
-#     cols = 3
-#     rows = int(np.ceil(len(results) / cols))
-    
-#     for i, (title, img) in enumerate(results.items()):
-#         plt.subplot(rows, cols, i + 1)
-#         plt.imshow(img)
-#         plt.title(title, fontsize=10)
-#         plt.axis('off')
-        
-#     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-#     plt.show()
-
 from matplotlib.animation import FuncAnimation
 
 def animate_rotation_only(sample_img_rgb):
